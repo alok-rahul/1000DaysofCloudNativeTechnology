@@ -1,0 +1,11 @@
+1. Which of the following commands can be used to manipulate strings in a file? 
+sed
+
+2. Which of the following commands will you use to display the top 5 lines of a file called myfile?
+head -f myfile
+
+3. How can we ignore the case (small or capital) differences while comparing two files using the diff command?
+diff -i
+
+4. Command to replace text1 to text2 in file1.txt
+sed -i "s/text1/text2/g" file1.txt
