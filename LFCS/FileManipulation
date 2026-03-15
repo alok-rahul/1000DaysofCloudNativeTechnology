@@ -9,3 +9,7 @@ diff -i
 
 4. Command to replace text1 to text2 in file1.txt
 sed -i "s/text1/text2/g" file1.txt
+
+5. Change all values text2 to text1 in the file1.txt config file from line number 500 to 2000.
+sed -i "500,2000s/text2/text1/g" file1.txt
+
