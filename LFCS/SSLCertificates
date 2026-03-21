@@ -1,0 +1,65 @@
+1.
+Generate a 4096-bit RSA private key and a Certificate Signing Request with a single command. The private key should be encrypted with the following password: "password".
+
+Save the key in a file called priv.key. Save the CSR in a file called cert.csr. There are no requirements for the certificate details like country name, organisation name, and so on. You can pick anything, or press Enter to pick the default values when prompted.
+
+Solution -
+openssl req -newkey rsa:4096 -keyout priv.key -out cert.csr
+.......+..+......+...+....+...+...+.........+..+...+.......+......+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*.....+.....+.+...............+...........+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*......+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+..+....+...+........+....+........+...+....+..+....+.........+...............+.....+...+...+.+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*................+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*........+....+......+.........+.......................................+............+...+..+.+............+..+...+...+............+.+.....+.+...........+...+.........+.+............+..+......+.........+...+.........+...............+......+.............+.........+.....+.+.....+....+......+....................+....+..+...+......+............+...+..........+......+.....+......+.......+.................+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Enter PEM pass phrase:
+Verifying - Enter PEM pass phrase:
+-----
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:
+State or Province Name (full name) [Some-State]:
+Locality Name (eg, city) []:
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:
+Organizational Unit Name (eg, section) []:
+Common Name (e.g. server FQDN or YOUR name) []:
+Email Address []:
+
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:
+An optional company name []:
+
+2. Generate a self-signed certificate
+
+Use no encryption for the private key.
+Save the key in a file called priv.key.
+Set the expiration for the certificate to 365 days.
+Save the certificate in a file called alokrahul.crt.
+Set the Common Name to alokrahul.com. The rest of the certificate details you can set to whatever you want.
+
+Solution - Execute the below command >>
+openssl req -x509 -noenc -days 365 -keyout priv.key -out alokrahul.crt
+.+.......+..+.............+......+.....+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*.......+....+...........+.+...+..+....+...+..+....+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*.+.....+...+...+.+.....+.........+....+..+............................+.....+.+.....+......+.........+......+.+...+......+...+..+.+.....+....+...+..+.................................+...+.......+...+..+.+..+....+...+...+..+.......+..................+...........+......+....+.....+....+...+.........+.....+......+..........+.....+...+......+.........+.+.....+.+........+............+.......+......+..............+.......+.....+......+.......+...+...+..+..............................+...+.+...........+.........+.+........+....+..+....+.........+..+...+.+......+......+..+..........+............+.....+.+..+...+...+....+........+....+......................................+......+.+.........+......+...+...+...+...........+.........+......+...+......+.+.....+.........+....+...+..+.+..+....+...+..+...+.+.....+.+...........+...+.+...+......+............+.........+.....+.+..+......+.......+............+...+...+..+............+...+...+.+...+......+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+........+..+.+..+......+.......+..+......+.+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*...+.....+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*........+.......+..................+..+.+.................+...+....+...+........+...+.+...........+....+......+..............+.+...+......+.....+.+..+............+....+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:
+State or Province Name (full name) [Some-State]:
+Locality Name (eg, city) []:
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:
+Organizational Unit Name (eg, section) []:
+Common Name (e.g. server FQDN or YOUR name) []:alokrahul.com
+Email Address []:
+
+3. What is the command to check the common name in alokrahul.crt?
+
+Solution :- openssl x509 -in my.crt -text
+
+
