@@ -15,3 +15,4 @@ sed -i "500,2000s/text2/text1/g" file1.txt
 
 6. Replace all occurrences of string #%$2jh//238720//31223 with $2//23872031223 in the /home/bob/data.txt file.
 sed -i 's~#%$2jh//238720//31223~$2//23872031223~g' /home/bob/data.txt
+
