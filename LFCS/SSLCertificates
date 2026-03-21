@@ -60,6 +60,6 @@ Email Address []:
 
 3. What is the command to check the common name in alokrahul.crt?
 
-Solution :- openssl x509 -in my.crt -text
+Solution :- openssl x509 -in alokrahul.crt -text
 
 
